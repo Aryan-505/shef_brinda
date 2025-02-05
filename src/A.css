@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+.a-container {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: url('/1.gif');
+    color: #5a3e1b; /* Warm brown */
+    width: 100vw;
+}
+
+.title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #040200; /* Coral */
+    text-shadow: 2px 2px 5px rgba(211, 84, 0, 0.5);
+    margin-bottom: 20px;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.timer-card {
+    background: rgba(255, 255, 255, 0.3); /* Glass effect */
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    min-width: 200px;
+}
+
+.timer-text {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #5a3e1b;
+    animation: pulse 1s infinite alternate;
+}
+
+/* 🔔 "Time Over" Message */
+.time-over {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #0a0501;
+    text-shadow: 2px 2px 5px rgba(25, 11, 1, 0.5);
+    margin-top: 15px;
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out forwards;
+}
+
+/* 🎀 Button Group */
+.btn-group {
+    margin-top: 20px;
+    display: flex;
+    gap: 15px;
+}
+
+/* Cute Buttons */
+.btn {
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.btn-start {
+    background: #59cc57; /* Green */
+    color: white;
+}
+
+.btn-restart {
+    background: #ff6f61; /* Coral Red */
+    color: white;
+}
+
+.btn-home {
+    background: #ffcc80; /* Soft Orange */
+    color: white;
+}
+
+.btn:hover {
+    transform: scale(1.1) rotate(-2deg);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Animation */
+@keyframes pulse {
+    from { transform: scale(1); }
+    to { transform: scale(1.1); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* 💖 Responsive */
+@media (max-width: 768px) {
+    .btn-group {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .btn {
+        width: 100%;
+    }
+}
