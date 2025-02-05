@@ -9,10 +9,10 @@ function A() {
     const [timeOver, setTimeOver] = useState(false);
 
     useEffect(() => {
-        let timer;
+        let timer: number | undefined; // Use `number` type for timer in browser
         if (running && time > 0) {
-            timer = setInterval(() => {
-                setTime((prev) => Math.max(0, (prev - 0.1).toFixed(2))); // Reduce time by 0.1s
+            timer = window.setInterval(() => {
+                setTime((prev) => Math.max(0, parseFloat((prev - 0.1).toFixed(2)))); // Parse back to number
             }, 100);
         } else if (time === 0) {
             setRunning(false); // Stop timer at 00.00
@@ -20,7 +20,9 @@ function A() {
             playAlarm(); // Play alarm when countdown ends
         }
 
-        return () => clearInterval(timer); // Cleanup interval
+        return () => {
+            if (timer) clearInterval(timer); // Cleanup interval
+        };
     }, [running, time]);
 
     const restartTimer = () => {

@@ -9,10 +9,10 @@ function D() {
     const [timeOver, setTimeOver] = useState(false);
 
     useEffect(() => {
-        let timer;
+        let timer: number | undefined;
         if (running && time > 0) {
             timer = setInterval(() => {
-                setTime((prev) => Math.max(0, (prev - 0.1).toFixed(2))); // Reduce time by 0.1s
+                setTime((prev) => Math.max(0, parseFloat((prev - 0.1).toFixed(2)))); // Reduce time by 0.1s
             }, 100);
         } else if (time === 0) {
             setRunning(false); // Stop timer at 00.00
